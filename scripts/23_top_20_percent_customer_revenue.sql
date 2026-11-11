@@ -17,12 +17,15 @@ bucketed as (
 		NTILE(5) over (order by customer_revenue Desc) as buckets
 	from customer_revenue
 		
+), topRevenue as (
+	select 
+		(select sum(customer_revenue) from customer_revenue) as total_revenue, 
+		sum(customer_revenue) as top_20_revenue
+	from bucketed
+	where buckets = 1
+
 )
 
-select *
-from bucketed
-where buckets = 1
 
-
-
-	
+select round(((top_20_revenue / total_revenue) * 100 )::numeric, 2) as percent_revenue_from_top_20
+from topRevenue
