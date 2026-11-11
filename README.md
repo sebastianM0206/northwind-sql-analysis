@@ -14,7 +14,7 @@ are in the [ER diagram](images/postgres-Northwind-public.png).
 PostgreSQL and DBeaver.
 
 ## SQL used
-Joins (inner and left), GROUP BY / HAVING, CTEs, and window functions
+Joins (inner and left), GROUP BY / HAVING, CTEs, self-joins, CASE WHEN, subqueries and window functions
 (RANK, LAG, SUM OVER, NTILE).
 
 ## What I found
